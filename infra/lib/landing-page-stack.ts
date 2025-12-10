@@ -31,11 +31,10 @@ export class LandingPageStack extends cdk.Stack {
 
         // 3. Deploy site contents
         new s3deploy.BucketDeployment(this, 'DeployLandingPage', {
-            sources: [s3deploy.Source.asset(path.join(__dirname, '../../'))], // Deploy root of repo (build output usually)
+            sources: [s3deploy.Source.asset(path.join(__dirname, '../../dist'))], // Deploy build output
             destinationBucket: siteBucket,
             distribution: distribution,
             distributionPaths: ['/*'],
-            exclude: ['infra/**', '.git/**', 'node_modules/**'], // Exclude infra code
         });
 
         // Outputs

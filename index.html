@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucia - Asistente de Reservas con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">👩‍💼</span> Lucia
+      </a>
+      <div class="nav-links">
+        <a href="#features">Características</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Planes</a>
+        <a href="#contact" class="btn btn-primary">Contáctanos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge">Nuevo: Agenda Inteligente 2.0</div>
+        <h1>Automatiza tus reservas con <span class="gradient-text">Inteligencia Artificial</span></h1>
+        <p class="hero-subtitle">
+          Lucia trabaja 24/7 para tu clínica o salón, gestionando citas y respondiendo dudas por ti. Olvida las llamadas
+          perdidas y empieza a llenar tu agenda automáticamente.
+        </p>
+        <div class="hero-cta">
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg">Probar Demo en Vivo</button>
+          <a href="#features" class="btn btn-outline btn-lg">Saber más</a>
+        </div>
+        <div class="trust-badges">
+          <span>⭐️⭐️⭐️⭐️⭐️ Usado por +500 negocios</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Placeholder for Hero Image - CSS pattern for now -->
+        <div class="hero-visual">
+          <div class="chat-preview-mockup">
+            <div class="mockup-header">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+            </div>
+            <div class="mockup-body" id="chat-carousel-body">
+              <div class="msg bot">Hola, soy Lucia 👩‍💼</div>
+              <div class="msg user">Hola, quiero una cita</div>
+              <div class="msg bot">¡Claro! ¿Para qué servicio?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Todo lo que necesitas para crecer</h2>
+        <p>Lucia no es solo un chat, es una recepcionista experta que nunca duerme.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡️</div>
+          <h3>Respuestas Instantáneas</h3>
+          <p>Atiende a tus clientes en el momento exacto en que tienen interés. Cero tiempo de espera.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Agenda 100% Sincronizada</h3>
+          <p>Se conecta con tu calendario real. Muestra solo horarios disponibles y bloquea las citas confirmadas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Totalmente Personalizable</h3>
+          <p>Configura el nombre, colores y tono de voz para que se adapte perfectamente a tu marca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="demo-section">
+    <div class="container">
+      <div class="demo-content">
+        <div class="demo-text">
+          <h2>Prueba la experiencia en vivo</h2>
+          <p>
+            Interactúa con Lucia justo aquí. Simula ser un cliente agendando una cita en tu negocio.
+            Verás cómo guía la conversación, ofrece horarios reales y cierra la reserva.
+          </p>
+          <ul class="demo-checklist">
+            <li>✅ Detecta intenciones automáticamente</li>
+            <li>✅ Muestra disponibilidad en tiempo real</li>
+            <li>✅ Captura datos del cliente</li>
+          </ul>
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg">Abrir Chat de Demo</button>
+        </div>
+        <div class="demo-visual">
+          <!-- Visual placeholder showing the widget icon -->
+          <div class="widget-icon-pulse">
+            <span style="font-size: 40px;">👩‍💼</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Planes flexibles para tu crecimiento</h2>
+        <p>Comienza gratis y escala a medida que aumenten tus reservas.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan LITE -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <h3>Lite</h3>
+            <div class="price" style="font-size: 2.5rem;">3 Meses Gratis</div>
+            <p style="color: var(--primary); font-weight: 600;">luego $9/mes</p>
+          </div>
+          <ul class="plan-features">
+            <li>500 mensajes/mes</li>
+            <li>50 reservas/mes</li>
+            <li>1 Profesional</li>
+            <li>IA Básica (FSM)</li>
+          </ul>
+          <a href="#" class="btn btn-outline full-width">Probar Gratis</a>
+        </div>
+
+        <!-- Plan PRO -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <h3>Pro</h3>
+            <div class="price">$49<span>/mes</span></div>
+            <p>Pequeñas clínicas</p>
+          </div>
+          <ul class="plan-features">
+            <li>20,000 mensajes</li>
+            <li>2,000 reservas</li>
+            <li>3 Profesionales</li>
+            <li>IA Intermedia (NLP)</li>
+          </ul>
+          <a href="#" class="btn btn-primary full-width">Elegir Pro</a>
+        </div>
+
+        <!-- Plan BUSINESS -->
+        <div class="pricing-card popular">
+          <div class="popular-tag">Recomendado</div>
+          <div class="plan-header">
+            <h3>Business</h3>
+            <div class="price">$149<span>/mes</span></div>
+            <p>Centros en expansión</p>
+          </div>
+          <ul class="plan-features">
+            <li>100,000 mensajes</li>
+            <li>10,000 reservas</li>
+            <li>10 Profesionales</li>
+            <li>IA Avanzada Parcial</li>
+          </ul>
+          <a href="#" class="btn btn-outline full-width">Elegir Business</a>
+        </div>
+
+        <!-- Plan ENTERPRISE -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <h3>Enterprise</h3>
+            <div class="price">$299+</div>
+            <p>Franquicias y Hospitales</p>
+          </div>
+          <ul class="plan-features">
+            <li>Mensajes ilimitados</li>
+            <li>Reservas ilimitadas</li>
+            <li>50+ Profesionales</li>
+            <li>Full IA (Sonnet)</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline full-width">Contactar Ventas</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>¿Listo para modernizar tu negocio?</h2>
+          <p>Instala Lucia en menos de 5 minutos.</p>
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-white btn-lg">Ver Demo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <span class="logo-icon">👩‍💼</span> Lucia
+          <p>&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/terms.html">Términos</a>
+          <a href="/privacy.html">Privacidad</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Widget Injection -->
+    <!-- Widget Injection -->
+    <script src="http://localhost:3000/chat-widget.js" data-tenant-id="demo-landing" data-primary-color="#e91e63"
+      data-greeting-message="¡Hola! 👋 Soy Lucia.
+      ¿Te gustaría ver cómo automatizar tu agenda?" data-auto-open="false" data-position="right" data-use-mocks="true">
+      </script>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

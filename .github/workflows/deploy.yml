@@ -47,4 +47,5 @@ jobs:
       - name: Deploy with CDK
         run: |
           cd infra
+          npx cdk bootstrap
           npx cdk deploy --require-approval never

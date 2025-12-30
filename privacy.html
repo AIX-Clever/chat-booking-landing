@@ -41,30 +41,41 @@
                 <span class="logo-icon">👩‍💼</span> Lucia
             </a>
             <div class="nav-links">
-                <a href="/" class="btn btn-outline">Volver al Inicio</a>
+                <a href="/" class="btn btn-outline" data-i18n="privacy.backHome">Volver al Inicio</a>
             </div>
         </div>
     </nav>
 
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="pt">🇧🇷 PT</button>
+    </div>
+
     <div class="container">
         <div class="legal-content">
-            <h1>Política de Privacidad</h1>
-            <p>Última actualización: 9 de Diciembre, 2025</p>
+            <h1 data-i18n="privacy.title">Política de Privacidad</h1>
+            <p data-i18n="privacy.lastUpdated">Última actualización: 9 de Diciembre, 2025</p>
 
-            <h2>1. Información que Recopilamos</h2>
-            <p>Recopilamos información que usted nos proporciona directamente, como nombre, correo electrónico y número
+            <h2 data-i18n="privacy.section1Title">1. Información que Recopilamos</h2>
+            <p data-i18n="privacy.section1Text">Recopilamos información que usted nos proporciona directamente, como
+                nombre, correo electrónico y número
                 de teléfono al utilizar nuestros servicios de reserva.</p>
 
-            <h2>2. Uso de la Información</h2>
-            <p>Utilizamos la información recopilada para proporcionar, mantener y mejorar nuestros servicios, así como
+            <h2 data-i18n="privacy.section2Title">2. Uso de la Información</h2>
+            <p data-i18n="privacy.section2Text">Utilizamos la información recopilada para proporcionar, mantener y
+                mejorar nuestros servicios, así como
                 para comunicarnos con usted.</p>
 
-            <h2>3. Protección de Datos</h2>
-            <p>Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra el
+            <h2 data-i18n="privacy.section3Title">3. Protección de Datos</h2>
+            <p data-i18n="privacy.section3Text">Implementamos medidas de seguridad técnicas y organizativas para
+                proteger sus datos personales contra el
                 acceso no autorizado o la alteración.</p>
 
-            <h2>4. Cookies</h2>
-            <p>Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Puede configurar su navegador para
+            <h2 data-i18n="privacy.section4Title">4. Cookies</h2>
+            <p data-i18n="privacy.section4Text">Utilizamos cookies para mejorar su experiencia en nuestro sitio web.
+                Puede configurar su navegador para
                 rechazar todas las cookies.</p>
         </div>
     </div>
@@ -73,14 +84,16 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <span class="logo-icon">👩‍💼</span> Lucia
-                <p>&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
             </div>
             <div class="footer-links">
-                <a href="/terms.html">Términos</a>
-                <a href="/privacy.html">Privacidad</a>
+                <a href="/terms.html" data-i18n="footer.terms">Términos</a>
+                <a href="/privacy.html" data-i18n="footer.privacy">Privacidad</a>
             </div>
         </div>
     </footer>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

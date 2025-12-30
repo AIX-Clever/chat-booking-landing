@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install and Build App
         run: |
@@ -47,4 +47,5 @@ jobs:
       - name: Deploy with CDK
         run: |
           cd infra
+          npx cdk bootstrap
           npx cdk deploy --require-approval never

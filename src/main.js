@@ -1,4 +1,5 @@
 import './style.css'
+import './i18n/i18n.js';
 
 console.log('Lucia Landing Page Loaded 🚀');
 

@@ -41,30 +41,41 @@
                 <span class="logo-icon">👩‍💼</span> Lucia
             </a>
             <div class="nav-links">
-                <a href="/" class="btn btn-outline">Volver al Inicio</a>
+                <a href="/" class="btn btn-outline" data-i18n="terms.backHome">Volver al Inicio</a>
             </div>
         </div>
     </nav>
 
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        <button class="lang-btn" data-lang="pt">🇧🇷 PT</button>
+    </div>
+
     <div class="container">
         <div class="legal-content">
-            <h1>Términos y Condiciones</h1>
-            <p>Última actualización: 9 de Diciembre, 2025</p>
+            <h1 data-i18n="terms.title">Términos y Condiciones</h1>
+            <p data-i18n="terms.lastUpdated">Última actualización: 9 de Diciembre, 2025</p>
 
-            <h2>1. Introducción</h2>
-            <p>Bienvenido a Lucia. Al utilizar nuestro asistente de reservas con IA, usted acepta estos términos y
+            <h2 data-i18n="terms.section1Title">1. Introducción</h2>
+            <p data-i18n="terms.section1Text">Bienvenido a Lucia. Al utilizar nuestro asistente de reservas con IA,
+                usted acepta estos términos y
                 condiciones en su totalidad.</p>
 
-            <h2>2. Uso del Servicio</h2>
-            <p>Usted se compromete a utilizar Lucia únicamente para fines legales y de una manera que no infrinja los
+            <h2 data-i18n="terms.section2Title">2. Uso del Servicio</h2>
+            <p data-i18n="terms.section2Text">Usted se compromete a utilizar Lucia únicamente para fines legales y de
+                una manera que no infrinja los
                 derechos de, restrinja o inhiba el uso y disfrute del servicio por parte de cualquier otra persona.</p>
 
-            <h2>3. Propiedad Intelectual</h2>
-            <p>Todo el contenido, diseño y funcionalidad de Lucia son propiedad exclusiva de Lucia AI y están protegidos
+            <h2 data-i18n="terms.section3Title">3. Propiedad Intelectual</h2>
+            <p data-i18n="terms.section3Text">Todo el contenido, diseño y funcionalidad de Lucia son propiedad exclusiva
+                de Lucia AI y están protegidos
                 por las leyes de derechos de autor internacionales.</p>
 
-            <h2>4. Limitación de Responsabilidad</h2>
-            <p>Lucia se proporciona "tal cual". No garantizamos que el servicio sea ininterrumpido o esté libre de
+            <h2 data-i18n="terms.section4Title">4. Limitación de Responsabilidad</h2>
+            <p data-i18n="terms.section4Text">Lucia se proporciona "tal cual". No garantizamos que el servicio sea
+                ininterrumpido o esté libre de
                 errores.</p>
         </div>
     </div>
@@ -73,14 +84,16 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <span class="logo-icon">👩‍💼</span> Lucia
-                <p>&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
             </div>
             <div class="footer-links">
-                <a href="/terms.html">Términos</a>
-                <a href="/privacy.html">Privacidad</a>
+                <a href="/terms.html" data-i18n="footer.terms">Términos</a>
+                <a href="/privacy.html" data-i18n="footer.privacy">Privacidad</a>
             </div>
         </div>
     </footer>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

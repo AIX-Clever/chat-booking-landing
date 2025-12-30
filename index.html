@@ -20,30 +20,39 @@
         <span class="logo-icon">👩‍💼</span> Lucia
       </a>
       <div class="nav-links">
-        <a href="#features">Características</a>
-        <a href="#demo">Demo</a>
-        <a href="#pricing">Planes</a>
-        <a href="#contact" class="btn btn-primary">Contáctanos</a>
+        <a href="#features" data-i18n="nav.features">Características</a>
+        <a href="#demo" data-i18n="nav.demo">Demo</a>
+        <a href="#pricing" data-i18n="nav.pricing">Planes</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="nav.contact">Contáctanos</a>
       </div>
     </div>
   </nav>
+
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+    <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    <button class="lang-btn" data-lang="pt">🇧🇷 PT</button>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-container">
       <div class="hero-content">
-        <div class="badge">Nuevo: Agenda Inteligente 2.0</div>
-        <h1>Automatiza tus reservas con <span class="gradient-text">Inteligencia Artificial</span></h1>
-        <p class="hero-subtitle">
+        <div class="badge" data-i18n="hero.badge">Nuevo: Agenda Inteligente 2.0</div>
+        <h1 data-i18n-html="hero.title">Automatiza tus reservas con <span class="gradient-text">Inteligencia
+            Artificial</span></h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
           Lucia trabaja 24/7 para tu clínica o salón, gestionando citas y respondiendo dudas por ti. Olvida las llamadas
           perdidas y empieza a llenar tu agenda automáticamente.
         </p>
         <div class="hero-cta">
-          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg">Probar Demo en Vivo</button>
-          <a href="#features" class="btn btn-outline btn-lg">Saber más</a>
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg"
+            data-i18n="hero.ctaPrimary">Probar Demo en Vivo</button>
+          <a href="#features" class="btn btn-outline btn-lg" data-i18n="hero.ctaSecondary">Saber más</a>
         </div>
         <div class="trust-badges">
-          <span>⭐️⭐️⭐️⭐️⭐️ Usado por +500 negocios</span>
+          <span data-i18n="hero.trustBadge">⭐️⭐️⭐️⭐️⭐️ Usado por +500 negocios</span>
         </div>
       </div>
       <div class="hero-image">
@@ -56,9 +65,9 @@
               <div class="dot green"></div>
             </div>
             <div class="mockup-body" id="chat-carousel-body">
-              <div class="msg bot">Hola, soy Lucia 👩‍💼</div>
-              <div class="msg user">Hola, quiero una cita</div>
-              <div class="msg bot">¡Claro! ¿Para qué servicio?</div>
+              <div class="msg bot" data-i18n="hero.chatMsg1">Hola, soy Lucia 👩‍💼</div>
+              <div class="msg user" data-i18n="hero.chatMsg2">Hola, quiero una cita</div>
+              <div class="msg bot" data-i18n="hero.chatMsg3">¡Claro! ¿Para qué servicio?</div>
             </div>
           </div>
         </div>
@@ -70,24 +79,27 @@
   <section id="features" class="features">
     <div class="container">
       <div class="section-header text-center">
-        <h2>Todo lo que necesitas para crecer</h2>
-        <p>Lucia no es solo un chat, es una recepcionista experta que nunca duerme.</p>
+        <h2 data-i18n="features.title">Todo lo que necesitas para crecer</h2>
+        <p data-i18n="features.subtitle">Lucia no es solo un chat, es una recepcionista experta que nunca duerme.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">⚡️</div>
-          <h3>Respuestas Instantáneas</h3>
-          <p>Atiende a tus clientes en el momento exacto en que tienen interés. Cero tiempo de espera.</p>
+          <h3 data-i18n="features.feature1Title">Respuestas Instantáneas</h3>
+          <p data-i18n="features.feature1Desc">Atiende a tus clientes en el momento exacto en que tienen interés. Cero
+            tiempo de espera.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📅</div>
-          <h3>Agenda 100% Sincronizada</h3>
-          <p>Se conecta con tu calendario real. Muestra solo horarios disponibles y bloquea las citas confirmadas.</p>
+          <h3 data-i18n="features.feature2Title">Agenda 100% Sincronizada</h3>
+          <p data-i18n="features.feature2Desc">Se conecta con tu calendario real. Muestra solo horarios disponibles y
+            bloquea las citas confirmadas.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎨</div>
-          <h3>Totalmente Personalizable</h3>
-          <p>Configura el nombre, colores y tono de voz para que se adapte perfectamente a tu marca.</p>
+          <h3 data-i18n="features.feature3Title">Totalmente Personalizable</h3>
+          <p data-i18n="features.feature3Desc">Configura el nombre, colores y tono de voz para que se adapte
+            perfectamente a tu marca.</p>
         </div>
       </div>
     </div>
@@ -98,17 +110,18 @@
     <div class="container">
       <div class="demo-content">
         <div class="demo-text">
-          <h2>Prueba la experiencia en vivo</h2>
-          <p>
+          <h2 data-i18n="demo.title">Prueba la experiencia en vivo</h2>
+          <p data-i18n="demo.description">
             Interactúa con Lucia justo aquí. Simula ser un cliente agendando una cita en tu negocio.
             Verás cómo guía la conversación, ofrece horarios reales y cierra la reserva.
           </p>
           <ul class="demo-checklist">
-            <li>✅ Detecta intenciones automáticamente</li>
-            <li>✅ Muestra disponibilidad en tiempo real</li>
-            <li>✅ Captura datos del cliente</li>
+            <li data-i18n="demo.check1">✅ Detecta intenciones automáticamente</li>
+            <li data-i18n="demo.check2">✅ Muestra disponibilidad en tiempo real</li>
+            <li data-i18n="demo.check3">✅ Captura datos del cliente</li>
           </ul>
-          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg">Abrir Chat de Demo</button>
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg" data-i18n="demo.cta">Abrir Chat
+            de Demo</button>
         </div>
         <div class="demo-visual">
           <!-- Visual placeholder showing the widget icon -->
@@ -124,74 +137,79 @@
   <section id="pricing" class="pricing-section">
     <div class="container">
       <div class="section-header text-center">
-        <h2>Planes flexibles para tu crecimiento</h2>
-        <p>Comienza gratis y escala a medida que aumenten tus reservas.</p>
+        <h2 data-i18n="pricing.title">Planes flexibles para tu crecimiento</h2>
+        <p data-i18n="pricing.subtitle">Comienza gratis y escala a medida que aumenten tus reservas.</p>
       </div>
 
       <div class="pricing-grid">
         <!-- Plan LITE -->
         <div class="pricing-card">
           <div class="plan-header">
-            <h3>Lite</h3>
-            <div class="price" style="font-size: 2.5rem;">3 Meses Gratis</div>
-            <p style="color: var(--primary); font-weight: 600;">luego $9/mes</p>
+            <h3 data-i18n="pricing.planLite">Lite</h3>
+            <div class="price" style="font-size: 2.5rem;" data-i18n="pricing.litePriceMain">3 Meses Gratis</div>
+            <p style="color: var(--primary); font-weight: 600;" data-i18n="pricing.litePriceSub">luego $9/mes</p>
           </div>
           <ul class="plan-features">
-            <li>500 mensajes/mes</li>
-            <li>50 reservas/mes</li>
-            <li>1 Profesional</li>
-            <li>IA Básica (FSM)</li>
+            <li data-i18n="pricing.liteFeature1">500 mensajes/mes</li>
+            <li data-i18n="pricing.liteFeature2">50 reservas/mes</li>
+            <li data-i18n="pricing.liteFeature3">1 Profesional</li>
+            <li data-i18n="pricing.liteFeature4">IA Básica (FSM)</li>
           </ul>
-          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-outline full-width">Probar Gratis</a>
+          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-outline full-width"
+            data-i18n="pricing.ctaLite">Probar Gratis</a>
         </div>
 
         <!-- Plan PRO -->
         <div class="pricing-card">
           <div class="plan-header">
-            <h3>Pro</h3>
-            <div class="price">$49<span>/mes</span></div>
-            <p>Pequeñas clínicas</p>
+            <h3 data-i18n="pricing.planPro">Pro</h3>
+            <div class="price"><span data-i18n="pricing.proPrice">$49</span><span
+                data-i18n="pricing.perMonth">/mes</span></div>
+            <p data-i18n="pricing.proSubtitle">Pequeñas clínicas</p>
           </div>
           <ul class="plan-features">
-            <li>20,000 mensajes</li>
-            <li>2,000 reservas</li>
-            <li>3 Profesionales</li>
-            <li>IA Intermedia (NLP)</li>
+            <li data-i18n="pricing.proFeature1">20,000 mensajes</li>
+            <li data-i18n="pricing.proFeature2">2,000 reservas</li>
+            <li data-i18n="pricing.proFeature3">3 Profesionales</li>
+            <li data-i18n="pricing.proFeature4">IA Intermedia (NLP)</li>
           </ul>
-          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-primary full-width">Elegir Pro</a>
+          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-primary full-width"
+            data-i18n="pricing.ctaPro">Elegir Pro</a>
         </div>
 
         <!-- Plan BUSINESS -->
         <div class="pricing-card popular">
-          <div class="popular-tag">Recomendado</div>
+          <div class="popular-tag" data-i18n="pricing.popularTag">Recomendado</div>
           <div class="plan-header">
-            <h3>Business</h3>
-            <div class="price">$149<span>/mes</span></div>
-            <p>Centros en expansión</p>
+            <h3 data-i18n="pricing.planBusiness">Business</h3>
+            <div class="price"><span data-i18n="pricing.businessPrice">$149</span><span
+                data-i18n="pricing.perMonth">/mes</span></div>
+            <p data-i18n="pricing.businessSubtitle">Centros en expansión</p>
           </div>
           <ul class="plan-features">
-            <li>100,000 mensajes</li>
-            <li>10,000 reservas</li>
-            <li>10 Profesionales</li>
-            <li>IA Avanzada Parcial</li>
+            <li data-i18n="pricing.businessFeature1">100,000 mensajes</li>
+            <li data-i18n="pricing.businessFeature2">10,000 reservas</li>
+            <li data-i18n="pricing.businessFeature3">10 Profesionales</li>
+            <li data-i18n="pricing.businessFeature4">IA Avanzada Parcial</li>
           </ul>
-          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-outline full-width">Elegir Business</a>
+          <a href="https://dh23uc6y1buqf.cloudfront.net" class="btn btn-outline full-width"
+            data-i18n="pricing.ctaBusiness">Elegir Business</a>
         </div>
 
         <!-- Plan ENTERPRISE -->
         <div class="pricing-card">
           <div class="plan-header">
-            <h3>Enterprise</h3>
-            <div class="price">$299+</div>
-            <p>Franquicias y Hospitales</p>
+            <h3 data-i18n="pricing.planEnterprise">Enterprise</h3>
+            <div class="price" data-i18n="pricing.enterprisePrice">$299+</div>
+            <p data-i18n="pricing.enterpriseSubtitle">Franquicias y Hospitales</p>
           </div>
           <ul class="plan-features">
-            <li>Mensajes ilimitados</li>
-            <li>Reservas ilimitadas</li>
-            <li>50+ Profesionales</li>
-            <li>Full IA (Sonnet)</li>
+            <li data-i18n="pricing.enterpriseFeature1">Mensajes ilimitados</li>
+            <li data-i18n="pricing.enterpriseFeature2">Reservas ilimitadas</li>
+            <li data-i18n="pricing.enterpriseFeature3">50+ Profesionales</li>
+            <li data-i18n="pricing.enterpriseFeature4">Full IA (Sonnet)</li>
           </ul>
-          <a href="#contact" class="btn btn-outline full-width">Contactar Ventas</a>
+          <a href="#contact" class="btn btn-outline full-width" data-i18n="pricing.ctaEnterprise">Contactar Ventas</a>
         </div>
       </div>
     </div>
@@ -200,9 +218,10 @@
     <section class="cta-section">
       <div class="container">
         <div class="cta-box">
-          <h2>¿Listo para modernizar tu negocio?</h2>
-          <p>Instala Lucia en menos de 5 minutos.</p>
-          <button onclick="window.ChatAgentWidget.open()" class="btn btn-white btn-lg">Ver Demo</button>
+          <h2 data-i18n="cta.title">¿Listo para modernizar tu negocio?</h2>
+          <p data-i18n="cta.subtitle">Instala Lucia en menos de 5 minutos.</p>
+          <button onclick="window.ChatAgentWidget.open()" class="btn btn-white btn-lg" data-i18n="cta.button">Ver
+            Demo</button>
         </div>
       </div>
     </section>
@@ -212,11 +231,11 @@
       <div class="container footer-container">
         <div class="footer-brand">
           <span class="logo-icon">👩‍💼</span> Lucia
-          <p>&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
+          <p data-i18n="footer.copyright">&copy; 2025 Lucia AI. Todos los derechos reservados.</p>
         </div>
         <div class="footer-links">
-          <a href="/terms.html">Términos</a>
-          <a href="/privacy.html">Privacidad</a>
+          <a href="/terms.html" data-i18n="footer.terms">Términos</a>
+          <a href="/privacy.html" data-i18n="footer.privacy">Privacidad</a>
         </div>
       </div>
     </footer>

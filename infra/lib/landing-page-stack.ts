@@ -19,6 +19,11 @@ export class LandingPageStack extends cdk.Stack {
             blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
             removalPolicy: cdk.RemovalPolicy.DESTROY, // For demo/dev
             autoDeleteObjects: true, // For demo/dev
+            cors: [{
+                allowedMethods: [s3.HttpMethods.GET],
+                allowedOrigins: ['*'],
+                allowedHeaders: ['*'],
+            }]
         });
 
         // 2. Create Origin Access Control (OAC)
@@ -38,6 +43,7 @@ export class LandingPageStack extends cdk.Stack {
                     originAccessControlId: oac.attrId
                 }),
                 viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                responseHeadersPolicy: cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
             },
             defaultRootObject: 'index.html',
         });

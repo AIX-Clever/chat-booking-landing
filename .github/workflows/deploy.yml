@@ -3,6 +3,7 @@ name: Deploy Landing Page
 on:
   push:
     branches:
+      - main
       - dev
       - qa
       - stg

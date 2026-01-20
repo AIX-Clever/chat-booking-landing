@@ -16,7 +16,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      ENV: ${{ github.ref_name }}
+      ENV: dev # Always deploy to dev environment in current AWS account
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3

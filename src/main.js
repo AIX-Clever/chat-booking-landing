@@ -1,5 +1,8 @@
 import './style.css'
 import './i18n/i18n.js';
+import { initCookieBanner } from './components/CookieBanner.js';
+
+initCookieBanner();
 
 console.log('Lucia Landing Page Loaded 🚀');
 

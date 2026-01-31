@@ -113,6 +113,12 @@ const translations = {
             section3Text: 'Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra el acceso no autorizado o la alteración.',
             section4Title: '4. Cookies',
             section4Text: 'Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Puede configurar su navegador para rechazar todas las cookies.'
+        },
+        cookies: {
+            title: 'Configuración de Cookies',
+            message: 'Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico.',
+            accept: 'Aceptar Cookies',
+            learnMore: 'Más información'
         }
     },
     en: {
@@ -229,6 +235,12 @@ const translations = {
             section3Text: 'We implement technical and organizational security measures to protect your personal data against unauthorized access or alteration.',
             section4Title: '4. Cookies',
             section4Text: 'We use cookies to improve your experience on our website. You can configure your browser to reject all cookies.'
+        },
+        cookies: {
+            title: 'Cookie Settings',
+            message: 'We use our own and third-party cookies to improve your experience and analyze traffic.',
+            accept: 'Accept Cookies',
+            learnMore: 'Learn more'
         }
     },
     pt: {
@@ -345,6 +357,12 @@ const translations = {
             section3Text: 'Implementamos medidas de segurança técnicas e organizacionais para proteger seus dados pessoais contra acesso não autorizado ou alteração.',
             section4Title: '4. Cookies',
             section4Text: 'Usamos cookies para melhorar sua experiência em nosso site. Você pode configurar seu navegador para rejeitar todos os cookies.'
+        },
+        cookies: {
+            title: 'Configuração de Cookies',
+            message: 'Utilizamos cookies próprios e de terceiros para melhorar sua experiência e analisar o tráfego.',
+            accept: 'Aceitar Cookies',
+            learnMore: 'Saiba mais'
         }
     }
 };

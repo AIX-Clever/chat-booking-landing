@@ -745,7 +745,7 @@ footer {
     flex-direction: column;
     padding: 6px;
   }
-  
+
   .lang-btn {
     padding: 10px;
     font-size: 1.2rem;
@@ -824,6 +824,7 @@ footer {
     max-width: none;
   }
 }
+
 .pricing-card.coming-soon {
   opacity: 0.6;
   filter: grayscale(0.5);
@@ -838,7 +839,8 @@ footer {
   opacity: 0.7;
 }
 
-.price .currency {
+.price .currency,
+.price .decimals {
   font-size: 0.5em;
   vertical-align: top;
   margin-right: 2px;

@@ -163,7 +163,8 @@
         </div>
 
         <!-- Plan PRO -->
-        <div class="pricing-card">
+        <div class="pricing-card popular">
+          <div class="popular-tag" data-i18n="pricing.popularTag">Recomendado</div>
           <div class="plan-header">
             <h3 data-i18n="pricing.planPro">Pro</h3>
             <div class="price">
@@ -185,13 +186,12 @@
         </div>
 
         <!-- Plan BUSINESS -->
-        <div class="pricing-card popular">
-          <div class="popular-tag" data-i18n="pricing.popularTag">Recomendado</div>
+        <div class="pricing-card coming-soon">
           <div class="plan-header">
             <h3 data-i18n="pricing.planBusiness">Business</h3>
             <div class="price">
               <span data-i18n="pricing.businessPrice"
-                style="font-size: 3.5rem; color: var(--text-main); font-weight: 800;">$149</span>
+                style="font-size: 2.2rem; color: var(--text-main); font-weight: 800;">$149</span>
               <span data-i18n="pricing.perMonth">/mes</span>
             </div>
             <p data-i18n="pricing.businessSubtitle">Centros en expansión</p>
@@ -202,15 +202,14 @@
             <li data-i18n="pricing.businessFeature3">10 Profesionales</li>
             <li data-i18n="pricing.businessFeature4">IA Avanzada Parcial</li>
           </ul>
-          <a href="https://onboarding.holalucia.cl?plan=business" class="btn btn-outline full-width"
-            data-i18n="pricing.ctaBusiness">Elegir Business</a>
+          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaBusiness">Elegir Business</button>
         </div>
 
         <!-- Plan ENTERPRISE -->
-        <div class="pricing-card">
+        <div class="pricing-card coming-soon">
           <div class="plan-header">
             <h3 data-i18n="pricing.planEnterprise">Enterprise</h3>
-            <div class="price" data-i18n="pricing.enterprisePrice">$499+</div>
+            <div class="price" data-i18n="pricing.enterprisePrice" style="font-size: 2.2rem;">$499+</div>
             <p data-i18n="pricing.enterpriseSubtitle">Franquicias y Hospitales</p>
           </div>
           <ul class="plan-features">
@@ -219,7 +218,8 @@
             <li data-i18n="pricing.enterpriseFeature3">50+ Profesionales</li>
             <li data-i18n="pricing.enterpriseFeature4">Full IA (Sonnet)</li>
           </ul>
-          <a href="#contact" class="btn btn-outline full-width" data-i18n="pricing.ctaEnterprise">Contactar Ventas</a>
+          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaEnterprise">Contactar
+            Ventas</button>
         </div>
       </div>
     </div>
@@ -261,6 +261,7 @@
 
 
     <script type="module" src="/src/main.js"></script>
+    <!-- Last Updated: 2026-02-01 Pricing Update -->
 </body>
 
 </html>

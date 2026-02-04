@@ -29,7 +29,13 @@ const translations = {
             feature2Title: 'Agenda 100% Sincronizada',
             feature2Desc: 'Se conecta con tu calendario real. Muestra solo horarios disponibles y bloquea las citas confirmadas.',
             feature3Title: 'Totalmente Personalizable',
-            feature3Desc: 'Configura el nombre, colores y tono de voz para que se adapte perfectamente a tu marca.'
+            feature3Desc: 'Configura el nombre, colores y tono de voz para que se adapte perfectamente a tu marca.',
+            feature4Title: 'Links Personalizados',
+            feature4Desc: 'Crea tu página de reservas y compártela en redes sociales. Ideal para tu bio de Instagram.',
+            feature5Title: 'Multi-Profesional',
+            feature5Desc: 'Gestiona varios profesionales desde una cuenta. Cada uno con su agenda y link propio.',
+            feature6Title: 'Panel de Control',
+            feature6Desc: 'Visualiza reservas, gestiona citas y controla todo desde un panel centralizado.'
         },
         demo: {
             title: 'Prueba la experiencia en vivo',
@@ -156,7 +162,13 @@ const translations = {
             feature2Title: '100% Synchronized Calendar',
             feature2Desc: 'Connects with your real calendar. Shows only available times and blocks confirmed appointments.',
             feature3Title: 'Fully Customizable',
-            feature3Desc: 'Configure the name, colors, and tone of voice to perfectly match your brand.'
+            feature3Desc: 'Configure the name, colors, and tone of voice to perfectly match your brand.',
+            feature4Title: 'Personalized Links',
+            feature4Desc: 'Create your booking page and share it on social media. Perfect for your Instagram bio.',
+            feature5Title: 'Multi-Professional',
+            feature5Desc: 'Manage multiple professionals from one account. Each with their own schedule and link.',
+            feature6Title: 'Control Panel',
+            feature6Desc: 'View bookings, manage appointments and control everything from a centralized dashboard.'
         },
         demo: {
             title: 'Try the live experience',
@@ -281,7 +293,13 @@ const translations = {
             feature2Title: 'Agenda 100% Sincronizada',
             feature2Desc: 'Conecta-se com seu calendário real. Mostra apenas horários disponíveis e bloqueia consultas confirmadas.',
             feature3Title: 'Totalmente Personalizável',
-            feature3Desc: 'Configure o nome, cores e tom de voz para se adaptar perfeitamente à sua marca.'
+            feature3Desc: 'Configure o nome, cores e tom de voz para se adaptar perfeitamente à sua marca.',
+            feature4Title: 'Links Personalizados',
+            feature4Desc: 'Crie sua página de reservas e compartilhe nas redes sociais. Ideal para sua bio do Instagram.',
+            feature5Title: 'Multi-Profissional',
+            feature5Desc: 'Gerencie vários profissionais em uma conta. Cada um com sua agenda e link próprio.',
+            feature6Title: 'Painel de Controle',
+            feature6Desc: 'Visualize reservas, gerencie consultas e controle tudo em um painel centralizado.'
         },
         demo: {
             title: 'Experimente a experiência ao vivo',

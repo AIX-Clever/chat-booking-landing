@@ -13,7 +13,7 @@ const translations = {
         hero: {
             badge: 'Nuevo: Agenda Online 24/7',
             title: 'Tu agenda siempre <span class="gradient-text">disponible</span>',
-            subtitle: 'Lucia atiende a tus clientes cuando tú no puedes. Recibe reservas las 24 horas, sin perder llamadas ni mensajes. Ideal para clínicas, salones y profesionales independientes.',
+            subtitle: 'Lucia atiende a tus clientes cuando tú no puedes. Recibe reservas las 24 horas, directamente por chat o WhatsApp. Ideal para clínicas, salones y profesionales independientes.',
             ctaPrimary: 'Probar Demo en Vivo',
             ctaSecondary: 'Ver Planes',
             trustBadge: '⭐️⭐️⭐️⭐️⭐️ Usado por +500 negocios',
@@ -146,7 +146,7 @@ const translations = {
         hero: {
             badge: 'New: Online Booking 24/7',
             title: 'Your schedule always <span class="gradient-text">available</span>',
-            subtitle: 'Lucia attends your customers when you can\'t. Receive bookings 24 hours a day, without missing calls or messages. Perfect for clinics, salons and independent professionals.',
+            subtitle: 'Lucia attends your customers when you can\'t. Receive bookings 24 hours a day, directly via chat or WhatsApp. Perfect for clinics, salons and independent professionals.',
             ctaPrimary: 'Try Live Demo',
             ctaSecondary: 'See Plans',
             trustBadge: '⭐️⭐️⭐️⭐️⭐️ Used by +500 businesses',
@@ -277,7 +277,7 @@ const translations = {
         hero: {
             badge: 'Novo: Agendamento Online 24/7',
             title: 'Sua agenda sempre <span class="gradient-text">disponível</span>',
-            subtitle: 'Lucia atende seus clientes quando você não pode. Receba reservas 24 horas por dia, sem perder chamadas ou mensagens. Ideal para clínicas, salões e profissionais independentes.',
+            subtitle: 'Lucia atende seus clientes quando você não pode. Receba reservas 24 horas por dia, diretamente por chat ou WhatsApp. Ideal para clínicas, salões e profissionais independentes.',
             ctaPrimary: 'Experimentar Demo ao Vivo',
             ctaSecondary: 'Ver Planos',
             trustBadge: '⭐️⭐️⭐️⭐️⭐️ Usado por +500 empresas',

@@ -26,7 +26,8 @@
         <a href="#features" data-i18n="nav.features">Características</a>
         <a href="#demo" data-i18n="nav.demo">Demo</a>
         <a href="#pricing" data-i18n="nav.pricing">Planes</a>
-        <a href="#contact" class="btn btn-primary" data-i18n="nav.contact">Contáctanos</a>
+        <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary"
+          data-i18n="nav.contact">Contáctanos</button>
       </div>
     </div>
   </nav>
@@ -42,17 +43,16 @@
   <section class="hero">
     <div class="container hero-container">
       <div class="hero-content">
-        <div class="badge" data-i18n="hero.badge">Nuevo: Agenda Inteligente 2.0</div>
-        <h1 data-i18n-html="hero.title">Automatiza tus reservas con <span class="gradient-text">Inteligencia
-            Artificial</span></h1>
+        <div class="badge" data-i18n="hero.badge">Nuevo: Agenda Online 24/7</div>
+        <h1 data-i18n-html="hero.title">Tu agenda siempre <span class="gradient-text">disponible</span></h1>
         <p class="hero-subtitle" data-i18n="hero.subtitle">
-          Lucia trabaja 24/7 para tu clínica o salón, gestionando citas y respondiendo dudas por ti. Olvida las llamadas
-          perdidas y empieza a llenar tu agenda automáticamente.
+          Lucia atiende a tus clientes cuando tú no puedes. Recibe reservas las 24 horas, sin perder llamadas ni
+          mensajes. Ideal para clínicas, salones y profesionales independientes.
         </p>
         <div class="hero-cta">
           <button onclick="window.ChatAgentWidget.open()" class="btn btn-primary btn-lg"
             data-i18n="hero.ctaPrimary">Probar Demo en Vivo</button>
-          <a href="#features" class="btn btn-outline btn-lg" data-i18n="hero.ctaSecondary">Saber más</a>
+          <a href="#pricing" class="btn btn-outline btn-lg" data-i18n="hero.ctaSecondary">Ver Planes</a>
         </div>
         <div class="trust-badges">
           <span data-i18n="hero.trustBadge">⭐️⭐️⭐️⭐️⭐️ Usado por +500 negocios</span>
@@ -141,25 +141,32 @@
     <div class="container">
       <div class="section-header text-center">
         <h2 data-i18n="pricing.title">Planes flexibles para tu crecimiento</h2>
-        <p data-i18n="pricing.subtitle">Comienza gratis y escala a medida que aumenten tus reservas.</p>
+        <p data-i18n="pricing.subtitle">Empieza desde $1.000 y escala a medida que aumenten tus reservas.</p>
       </div>
 
       <div class="pricing-grid">
         <!-- Plan LITE -->
         <div class="pricing-card">
+          <div class="promo-tag" data-i18n="pricing.promoTag">🔥 Oferta Lanzamiento</div>
           <div class="plan-header">
             <h3 data-i18n="pricing.planLite">Lite</h3>
-            <div class="price" style="font-size: 2.5rem;" data-i18n="pricing.litePriceMain">3 Meses a $1</div>
-            <p style="color: var(--primary); font-weight: 600;" data-i18n="pricing.litePriceSub">luego $19/mes</p>
+            <div class="price">
+              <span data-i18n-html="pricing.litePrice"
+                style="font-size: 3rem; color: var(--text-main); font-weight: 800;">$19</span>
+              <span data-i18n="pricing.perMonth">/mes</span>
+            </div>
+            <p class="promo-offer" data-i18n-html="pricing.litePromo">🎁 <strong>3 meses por solo $1.000</strong></p>
+            <p class="plan-subtitle" data-i18n="pricing.liteSubtitle">Ideal para Redes Sociales</p>
           </div>
           <ul class="plan-features">
             <li data-i18n="pricing.liteFeature1">500 mensajes/mes</li>
             <li data-i18n="pricing.liteFeature2">50 reservas/mes</li>
             <li data-i18n="pricing.liteFeature3">1 Profesional</li>
-            <li data-i18n="pricing.liteFeature4">IA Básica (FSM)</li>
+            <li data-i18n="pricing.liteFeature4">Link para tu Bio 🔗</li>
+            <li data-i18n="pricing.liteFeature5">Página de reservas propia</li>
           </ul>
-          <a href="https://onboarding.holalucia.cl?plan=lite" class="btn btn-outline full-width"
-            data-i18n="pricing.ctaLite">Probar Gratis</a>
+          <a href="https://onboarding.holalucia.cl?plan=lite" class="btn btn-primary full-width"
+            data-i18n="pricing.ctaLite">Empezar por $1.000</a>
         </div>
 
         <!-- Plan PRO -->
@@ -172,17 +179,17 @@
                 style="font-size: 3rem; color: var(--text-main); font-weight: 800;">$49</span>
               <span data-i18n="pricing.perMonth">/mes</span>
             </div>
-            <p data-i18n="pricing.proSubtitle">Pequeñas clínicas</p>
+            <p class="plan-subtitle" data-i18n="pricing.proSubtitle">Pequeñas clínicas</p>
           </div>
           <ul class="plan-features">
-            <li data-i18n="pricing.proFeature1">20,000 mensajes</li>
-            <li data-i18n="pricing.proFeature2">2,000 reservas</li>
-            <li data-i18n="pricing.proFeature3">3 Profesionales</li>
-            <li data-i18n="pricing.proFeature4">IA Intermedia (NLP)</li>
+            <li data-i18n="pricing.proFeature1">2,000 mensajes</li>
+            <li data-i18n="pricing.proFeature2">500 reservas</li>
+            <li data-i18n="pricing.proFeature3">5 Profesionales</li>
+            <li data-i18n="pricing.proFeature4">Widget para tu Web</li>
+            <li data-i18n="pricing.proFeature5">Link personal por profesional</li>
           </ul>
           <a href="https://onboarding.holalucia.cl?plan=pro" class="btn btn-primary full-width"
-            data-i18n="pricing.ctaPro">Elegir
-            Pro</a>
+            data-i18n="pricing.ctaPro">Elegir Pro</a>
         </div>
 
         <!-- Plan BUSINESS -->
@@ -191,35 +198,38 @@
             <h3 data-i18n="pricing.planBusiness">Business</h3>
             <div class="price">
               <span data-i18n="pricing.businessPrice"
-                style="font-size: 2.2rem; color: var(--text-main); font-weight: 800;">$149</span>
+                style="font-size: 2.2rem; color: var(--text-main); font-weight: 800;">Futuro</span>
               <span data-i18n="pricing.perMonth">/mes</span>
             </div>
-            <p data-i18n="pricing.businessSubtitle">Centros en expansión</p>
+            <p class="plan-subtitle" data-i18n="pricing.businessSubtitle">Centros en expansión</p>
           </div>
           <ul class="plan-features">
-            <li data-i18n="pricing.businessFeature1">100,000 mensajes</li>
-            <li data-i18n="pricing.businessFeature2">10,000 reservas</li>
-            <li data-i18n="pricing.businessFeature3">10 Profesionales</li>
-            <li data-i18n="pricing.businessFeature4">IA Avanzada Parcial</li>
+            <li data-i18n="pricing.businessFeature1">10,000 mensajes</li>
+            <li data-i18n="pricing.businessFeature2">2,000 reservas</li>
+            <li data-i18n="pricing.businessFeature3">20 Profesionales</li>
+            <li data-i18n="pricing.businessFeature4">Inteligencia Artificial</li>
           </ul>
-          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaBusiness">Elegir Business</button>
+          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaBusiness">Futuro</button>
         </div>
 
         <!-- Plan ENTERPRISE -->
         <div class="pricing-card coming-soon">
           <div class="plan-header">
             <h3 data-i18n="pricing.planEnterprise">Enterprise</h3>
-            <div class="price" data-i18n="pricing.enterprisePrice" style="font-size: 2.2rem;">$499+</div>
-            <p data-i18n="pricing.enterpriseSubtitle">Franquicias y Hospitales</p>
+            <div class="price">
+              <span data-i18n="pricing.enterprisePrice"
+                style="font-size: 2.2rem; color: var(--text-main); font-weight: 800;">Futuro</span>
+              <span data-i18n="pricing.perMonth">/mes</span>
+            </div>
+            <p class="plan-subtitle" data-i18n="pricing.enterpriseSubtitle">Franquicias y Hospitales</p>
           </div>
           <ul class="plan-features">
-            <li data-i18n="pricing.enterpriseFeature1">500,000 mensajes</li>
-            <li data-i18n="pricing.enterpriseFeature2">50,000 reservas</li>
-            <li data-i18n="pricing.enterpriseFeature3">50+ Profesionales</li>
-            <li data-i18n="pricing.enterpriseFeature4">Full IA (Sonnet)</li>
+            <li data-i18n="pricing.enterpriseFeature1">100,000 mensajes</li>
+            <li data-i18n="pricing.enterpriseFeature2">5,000 reservas</li>
+            <li data-i18n="pricing.enterpriseFeature3">Usuarios Ilimitados</li>
+            <li data-i18n="pricing.enterpriseFeature4">Full IA (RAG/Sonnet)</li>
           </ul>
-          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaEnterprise">Contactar
-            Ventas</button>
+          <button class="btn btn-outline full-width" disabled data-i18n="pricing.ctaEnterprise">Futuro</button>
         </div>
       </div>
     </div>
@@ -229,7 +239,7 @@
       <div class="container">
         <div class="cta-box">
           <h2 data-i18n="cta.title">¿Listo para modernizar tu negocio?</h2>
-          <p data-i18n="cta.subtitle">Instala Lucia en menos de 5 minutos.</p>
+          <p data-i18n="cta.subtitle">Configura Lucia en menos de 5 minutos.</p>
           <button onclick="window.ChatAgentWidget.open()" class="btn btn-white btn-lg" data-i18n="cta.button">Ver
             Demo</button>
         </div>

@@ -44,8 +44,12 @@ export class LandingPageStack extends cdk.Stack {
                 }),
                 viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 responseHeadersPolicy: cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
+                compress: true,
             },
             defaultRootObject: 'index.html',
+            enableLogging: true, // Good practice
+            enableIpv6: true,
+            httpVersion: cloudfront.HttpVersion.HTTP2_AND_3, // Modern perf
         });
 
         // 4. Add Bucket Policy for OAC

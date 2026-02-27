@@ -50,6 +50,7 @@ export class LandingPageStack extends cdk.Stack {
             enableLogging: true, // Good practice
             enableIpv6: true,
             httpVersion: cloudfront.HttpVersion.HTTP2_AND_3, // Modern perf
+            comment: `Landing App (${process.env.ENV || 'dev'})`,
         });
 
         // 4. Add Bucket Policy for OAC

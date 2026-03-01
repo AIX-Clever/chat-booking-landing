@@ -53,5 +53,27 @@ jobs:
       - name: Deploy with CDK
         run: |
           cd infra
+          # Map branch to environment variables
+          if [ "${{ github.ref_name }}" == "main" ] || [ "${{ github.ref_name }}" == "prod" ] || [ "${{ github.ref_name }}" == "dev" ]; then
+            export ENV="prod"
+            export DOMAIN_NAME="holalucia.cl"
+            export CERTIFICATE_ARN="$CERT_PROD"
+          else
+            export ENV="${{ github.ref_name }}"
+            export DOMAIN_NAME="${ENV}.holalucia.cl"
+            
+            ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
+            var_name="CERT_${ENV_UPPER}"
+            export CERTIFICATE_ARN="${!var_name}"
+          fi
+          
+          echo "Deploying to environment: $ENV with domain: $DOMAIN_NAME"
+          
           npx cdk bootstrap
           npx cdk deploy --require-approval never
+        env:
+          DOMAIN_NAME: holalucia.cl
+          CERT_DEV: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_DEV }}
+          CERT_QA: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_QA }}
+          CERT_STG: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_STG }}
+          CERT_PROD: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_PROD }}

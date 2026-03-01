@@ -7,8 +7,13 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import * as path from 'path';
 
+export interface LandingPageStackProps extends cdk.StackProps {
+    domainName?: string;
+    certificateArn?: string;
+}
+
 export class LandingPageStack extends cdk.Stack {
-    constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    constructor(scope: Construct, id: string, props?: LandingPageStackProps) {
         super(scope, id, props);
 
         // 1. S3 Bucket for hosting
@@ -36,6 +41,19 @@ export class LandingPageStack extends cdk.Stack {
             },
         });
 
+        // Setup Certificate if provided
+        let certificate: cdk.aws_certificatemanager.ICertificate | undefined;
+        let domainNames: string[] | undefined;
+
+        if (props?.domainName && props?.certificateArn) {
+            certificate = cdk.aws_certificatemanager.Certificate.fromCertificateArn(
+                this,
+                'LandingCertificate',
+                props.certificateArn
+            );
+            domainNames = [props.domainName];
+        }
+
         // 3. CloudFront Distribution
         const distribution = new cloudfront.Distribution(this, 'LandingPageDist', {
             defaultBehavior: {
@@ -46,6 +64,8 @@ export class LandingPageStack extends cdk.Stack {
                 responseHeadersPolicy: cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
                 compress: true,
             },
+            domainNames: domainNames,
+            certificate: certificate,
             defaultRootObject: 'index.html',
             enableLogging: true, // Good practice
             enableIpv6: true,

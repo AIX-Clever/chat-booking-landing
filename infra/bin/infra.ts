@@ -5,4 +5,6 @@ import { LandingPageStack } from '../lib/landing-page-stack';
 const app = new cdk.App();
 new LandingPageStack(app, 'ChatBooking-LandingPage', {
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+  domainName: process.env.DOMAIN_NAME,
+  certificateArn: process.env.CERTIFICATE_ARN,
 });

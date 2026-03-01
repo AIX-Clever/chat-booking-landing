@@ -7,6 +7,7 @@ on:
       - qa
       - stg
       - prod
+  workflow_dispatch:
 
 permissions:
   id-token: write

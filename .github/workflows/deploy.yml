@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   deploy:
+    environment: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     env:
       ENV: dev # Always deploy to dev environment in current AWS account
@@ -43,7 +44,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: us-east-1
 
       - name: Install CDK dependencies
@@ -55,12 +56,12 @@ jobs:
         run: |
           cd infra
           # Map branch to environment variables
-          if [ "${{ github.ref_name }}" == "main" ] || [ "${{ github.ref_name }}" == "prod" ] || [ "${{ github.ref_name }}" == "dev" ]; then
+          export ENV="${{ github.ref_name }}"
+          if [ "$ENV" == "main" ] || [ "$ENV" == "prod" ]; then
             export ENV="prod"
             export DOMAIN_NAME="holalucia.cl"
             export CERTIFICATE_ARN="$CERT_PROD"
           else
-            export ENV="${{ github.ref_name }}"
             export DOMAIN_NAME="${ENV}.holalucia.cl"
             
             ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')

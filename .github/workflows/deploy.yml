@@ -60,13 +60,10 @@ jobs:
           if [ "$ENV" == "main" ] || [ "$ENV" == "prod" ]; then
             export ENV="prod"
             export DOMAIN_NAME="holalucia.cl"
-            export CERTIFICATE_ARN="$CERT_PROD"
+            export CERTIFICATE_ARN="$CERTIFICATE_ARN_SECRET"
           else
             export DOMAIN_NAME="${ENV}.holalucia.cl"
-            
-            ENV_UPPER=$(echo "$ENV" | tr '[:lower:]' '[:upper:]')
-            var_name="CERT_${ENV_UPPER}"
-            export CERTIFICATE_ARN="${!var_name}"
+            export CERTIFICATE_ARN="$CERTIFICATE_ARN_SECRET"
           fi
           
           echo "Deploying to environment: $ENV with domain: $DOMAIN_NAME"
@@ -75,7 +72,4 @@ jobs:
           npx cdk deploy --require-approval never
         env:
           DOMAIN_NAME: holalucia.cl
-          CERT_DEV: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_DEV }}
-          CERT_QA: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_QA }}
-          CERT_STG: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_STG }}
-          CERT_PROD: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN_PROD }}
+          CERTIFICATE_ARN_SECRET: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}

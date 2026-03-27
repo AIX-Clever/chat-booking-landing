@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   deploy:
+    environment: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

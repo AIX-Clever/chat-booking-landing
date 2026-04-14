@@ -3,7 +3,6 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
-import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import * as path from 'path';
 
@@ -22,8 +21,8 @@ export class LandingPageStack extends cdk.Stack {
             websiteErrorDocument: 'index.html',
             publicReadAccess: false,
             blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-            removalPolicy: cdk.RemovalPolicy.DESTROY, // For demo/dev
-            autoDeleteObjects: true, // For demo/dev
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
+            autoDeleteObjects: true,
             cors: [{
                 allowedMethods: [s3.HttpMethods.GET],
                 allowedOrigins: ['*'],
@@ -31,17 +30,7 @@ export class LandingPageStack extends cdk.Stack {
             }]
         });
 
-        // 2. Create Origin Access Control (OAC)
-        const oac = new cloudfront.CfnOriginAccessControl(this, 'LandingPageOAC', {
-            originAccessControlConfig: {
-                name: `LandingPageOAC-${this.node.addr}`, // Unique name
-                originAccessControlOriginType: 's3',
-                signingBehavior: 'always',
-                signingProtocol: 'sigv4',
-            },
-        });
-
-        // Setup Certificate if provided
+        // 2. Setup Certificate if provided
         let certificate: cdk.aws_certificatemanager.ICertificate | undefined;
         let domainNames: string[] | undefined;
 
@@ -55,11 +44,11 @@ export class LandingPageStack extends cdk.Stack {
         }
 
         // 3. CloudFront Distribution
+        // OAC is managed automatically by S3BucketOrigin.withOriginAccessControl —
+        // no need for a manual CfnOriginAccessControl (that caused duplicate OAC conflicts).
         const distribution = new cloudfront.Distribution(this, 'LandingPageDist', {
             defaultBehavior: {
-                origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket, {
-                    originAccessControlId: oac.attrId
-                }),
+                origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
                 viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 responseHeadersPolicy: cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
                 compress: true,
@@ -67,27 +56,15 @@ export class LandingPageStack extends cdk.Stack {
             domainNames: domainNames,
             certificate: certificate,
             defaultRootObject: 'index.html',
-            enableLogging: true, // Good practice
+            enableLogging: true,
             enableIpv6: true,
-            httpVersion: cloudfront.HttpVersion.HTTP2_AND_3, // Modern perf
+            httpVersion: cloudfront.HttpVersion.HTTP2_AND_3,
             comment: `Landing App (${process.env.ENV || 'dev'})`,
         });
 
-        // 4. Add Bucket Policy for OAC
-        siteBucket.addToResourcePolicy(new iam.PolicyStatement({
-            actions: ['s3:GetObject'],
-            resources: [siteBucket.arnForObjects('*')],
-            principals: [new iam.ServicePrincipal('cloudfront.amazonaws.com')],
-            conditions: {
-                StringEquals: {
-                    'AWS:SourceArn': `arn:aws:cloudfront::${this.account}:distribution/${distribution.distributionId}`
-                }
-            }
-        }));
-
-        // 5. Deploy site contents
+        // 4. Deploy site contents
         new s3deploy.BucketDeployment(this, 'DeployLandingPage', {
-            sources: [s3deploy.Source.asset(path.join(__dirname, '../../dist'))], // Deploy build output
+            sources: [s3deploy.Source.asset(path.join(__dirname, '../../dist'))],
             destinationBucket: siteBucket,
             distribution: distribution,
             distributionPaths: ['/*'],
@@ -96,6 +73,9 @@ export class LandingPageStack extends cdk.Stack {
         // Outputs
         new cdk.CfnOutput(this, 'DistributionDomainName', {
             value: distribution.distributionDomainName,
+        });
+        new cdk.CfnOutput(this, 'CustomDomain', {
+            value: props?.domainName ?? 'none',
         });
     }
 }

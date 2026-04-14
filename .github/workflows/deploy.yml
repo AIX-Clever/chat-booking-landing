@@ -15,18 +15,16 @@ permissions:
 
 jobs:
   deploy:
-    environment: ${{ github.ref_name }}
+    environment: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
     runs-on: ubuntu-latest
-    env:
-      ENV: dev # Always deploy to dev environment in current AWS account
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install and Build App
         run: |
@@ -35,8 +33,6 @@ jobs:
           sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" index.html
           sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" privacy.html
           sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" terms.html
-          # If there is a build script, run it. For static HTML/CSS, sometimes it's just copying or no-op.
-          # Checking if 'build' script exists, otherwise skip (safely)
           if npm run | grep -q "^ *build *"; then npm run build; fi
         env:
           NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
@@ -45,7 +41,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Install CDK dependencies
         run: |
@@ -54,22 +50,19 @@ jobs:
 
       - name: Deploy with CDK
         run: |
-          cd infra
-          # Map branch to environment variables
           export ENV="${{ github.ref_name }}"
           if [ "$ENV" == "main" ] || [ "$ENV" == "prod" ]; then
             export ENV="prod"
             export DOMAIN_NAME="holalucia.cl"
-            export CERTIFICATE_ARN="$CERTIFICATE_ARN_SECRET"
+          elif [ "$ENV" == "qa" ]; then
+            export DOMAIN_NAME="qa.holalucia.cl"
           else
-            export DOMAIN_NAME="${ENV}.holalucia.cl"
-            export CERTIFICATE_ARN="$CERTIFICATE_ARN_SECRET"
+            export DOMAIN_NAME="dev.holalucia.cl"
           fi
-          
+
           echo "Deploying to environment: $ENV with domain: $DOMAIN_NAME"
-          
-          npx cdk bootstrap
-          npx cdk deploy --require-approval never
+          cd infra
+          npx cdk deploy --all --require-approval never -c env=$ENV
         env:
-          DOMAIN_NAME: holalucia.cl
-          CERTIFICATE_ARN_SECRET: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}
+          ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
+          CERTIFICATE_ARN: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}

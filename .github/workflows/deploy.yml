@@ -51,7 +51,7 @@ jobs:
       - name: Deploy with CDK
         run: |
           cd infra
-          npx cdk deploy --all --require-approval never -c env=$ENV
+          npx cdk deploy --all --require-approval never --no-rollback -c env=$ENV
         env:
           ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
           DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}

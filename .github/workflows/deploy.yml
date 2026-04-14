@@ -50,19 +50,9 @@ jobs:
 
       - name: Deploy with CDK
         run: |
-          export ENV="${{ github.ref_name }}"
-          if [ "$ENV" == "main" ] || [ "$ENV" == "prod" ]; then
-            export ENV="prod"
-            export DOMAIN_NAME="holalucia.cl"
-          elif [ "$ENV" == "qa" ]; then
-            export DOMAIN_NAME="qa.holalucia.cl"
-          else
-            export DOMAIN_NAME="dev.holalucia.cl"
-          fi
-
-          echo "Deploying to environment: $ENV with domain: $DOMAIN_NAME"
           cd infra
           npx cdk deploy --all --require-approval never -c env=$ENV
         env:
           ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
+          DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}
           CERTIFICATE_ARN: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}

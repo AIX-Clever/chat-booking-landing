@@ -8,6 +8,7 @@ on:
       - qa
       - stg
       - prod
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -15,30 +16,45 @@ permissions:
 
 jobs:
   deploy:
+    environment: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
     runs-on: ubuntu-latest
-    env:
-      ENV: ${{ github.ref_name }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install and Build App
         run: |
           npm ci
-          # If there is a build script, run it. For static HTML/CSS, sometimes it's just copying or no-op.
-          # Checking if 'build' script exists, otherwise skip (safely)
+          
+          echo "Deploying to: ${{ github.ref_name }}"
+          echo "Onboarding URL: $ONBOARDING_URL"
+          echo "Widget URL: $WIDGET_URL"
+
+          # Replace Placeholders
+          sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" index.html
+          sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" privacy.html
+          sed -i "s/__RECAPTCHA_SITE_KEY__/${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}/g" terms.html
+          
+          # Use pipe delimiter as URLs contain slashes
+          sed -i "s|__ONBOARDING_URL__|$ONBOARDING_URL|g" index.html
+          sed -i "s|__WIDGET_URL__|$WIDGET_URL|g" index.html
+          
           if npm run | grep -q "^ *build *"; then npm run build; fi
+        env:
+          NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
+          ONBOARDING_URL: ${{ vars.ONBOARDING_URL }}
+          WIDGET_URL: ${{ vars.WIDGET_URL }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Install CDK dependencies
         run: |
@@ -48,5 +64,8 @@ jobs:
       - name: Deploy with CDK
         run: |
           cd infra
-          npx cdk bootstrap
-          npx cdk deploy --require-approval never
+          npx cdk deploy --all --require-approval never --no-rollback -c env=$ENV
+        env:
+          ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
+          DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}
+          CERTIFICATE_ARN: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}

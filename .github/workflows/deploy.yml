@@ -65,6 +65,7 @@ jobs:
           cd infra
           npx cdk deploy --all --require-approval never --no-rollback -c env=$ENV
         env:
+          ALLOWED_IPS: ${{ vars.ALLOWED_IPS }}
           ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name }}
           DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}
           CERTIFICATE_ARN: ${{ secrets.CLOUDFRONT_CERTIFICATE_ARN }}

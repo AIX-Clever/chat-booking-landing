@@ -134,12 +134,27 @@ const i18n = new I18n();
 
 // Setup language switcher buttons
 document.addEventListener('DOMContentLoaded', () => {
+    const selector = document.querySelector('.language-selector');
+
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const lang = btn.getAttribute('data-lang');
-            i18n.setLanguage(lang);
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile && !selector.classList.contains('expanded')) {
+                selector.classList.add('expanded');
+            } else {
+                i18n.setLanguage(lang);
+                selector.classList.remove('expanded');
+            }
         });
+    });
+
+    // Cerrar al hacer click fuera
+    document.addEventListener('click', () => {
+        selector?.classList.remove('expanded');
     });
 });
 

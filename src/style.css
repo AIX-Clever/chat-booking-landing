@@ -773,13 +773,25 @@ footer {
     top: auto;
     bottom: 80px;
     right: 16px;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 6px;
+    gap: 4px;
   }
 
-  .lang-btn {
-    padding: 10px;
-    font-size: 1.2rem;
+  /* Solo muestra el idioma activo por defecto */
+  .language-selector .lang-btn {
+    display: none;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .language-selector .lang-btn.active {
+    display: flex;
+  }
+
+  /* Al expandir muestra todas las opciones */
+  .language-selector.expanded .lang-btn {
+    display: flex;
   }
 }
 
